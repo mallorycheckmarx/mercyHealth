@@ -4,15 +4,21 @@
  
  
     <script>
-	
-	 var urgencyName;               
+	
+
+	 var urgencyName;               
+
      var urgencyId;
      var errormsg;
-	function callCopyPage(){
+	function callCopyPage(){
+
         window.parent.addTab("UrgencyPage?copyId=" + urgencyId,"Urgency","Urgency");
-	}
-	
-	var wid = '{!$CurrentPage.parameters.wid}';
+	}
+
+	
+
+	var wid = '{!$CurrentPage.parameters.wid}';
+
         function closeWindow(){
                 window.parent.refreshList();
                 window.parent.closeTab(wid);
@@ -48,7 +54,8 @@
             tbar: [ {
                 scale: 'medium',
                 iconCls: 'bmcNew',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                tooltip: '{!$Label.new}',
                listeners: {
                     mouseover: function(){
@@ -62,7 +69,8 @@
             } ,' ', {
                 scale: 'medium',
                 iconCls: 'bmcSave',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                 tooltip: '{!$Label.save}',
                 listeners: {
                     mouseover: function(){
@@ -76,7 +84,8 @@
             },' ',{
                 scale: 'medium',
                 iconCls: 'bmcCopy',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                 tooltip: '{!$Label.copy}',
                 id:'copyId',
                 listeners: {
@@ -91,7 +100,8 @@
                  },' ','-',' ',{
                 scale: 'medium',
                 iconCls: 'bmcDelete',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                 tooltip: '{!$Label.delete}',
                 id:'deleteId',
                 listeners: {
@@ -106,7 +116,8 @@
             },' ',{
                 scale: 'medium',
                 iconCls: 'bmcClear',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                  tooltip: '{!$Label.clear}',
                 id:'clearId',
                 listeners: {
@@ -123,7 +134,8 @@
             },' ',{
                 scale: 'medium',
                 iconCls: 'bmcReset',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                  tooltip: '{!$Label.reset}',
                 id:'resetId',
                 listeners: {
@@ -142,14 +154,16 @@
             {
                 scale: 'medium',
                 iconCls: 'bmcPrevious',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                 tooltip: '{!$Label.previousRecord}',
                 handler:PreviuosBtnHandler,
                
             },' ',{
                 scale: 'medium',
                 iconCls: 'bmcNext',
-				tooltipType : 'title',
+				tooltipType : 'title',
+
                  tooltip: '{!$Label.nextRecord}',
                 handler:NextBtnHandler,
               
@@ -180,32 +194,54 @@
      
      var UrgencyIdSet=window.parent.returnListOfId();
         function previousUrgencyBtnHandler1(){
-        	var idSetString='';
-			var i=0;
-			while(UrgencyIdSet.length > i){
-				if(idSetString==''){
-					idSetString='\''+UrgencyIdSet[i]+'\'';
-				}else{
-					idSetString=idSetString+','+'\''+UrgencyIdSet[i]+'\'';
-				}
-				i++;
-			}
-			previousUrgencyBtnHandler(idSetString);
+        	var idSetString='';
+
+			var i=0;
+
+			while(UrgencyIdSet.length > i){
+
+				if(idSetString==''){
+
+					idSetString='\''+UrgencyIdSet[i]+'\'';
+
+				}else{
+
+					idSetString=idSetString+','+'\''+UrgencyIdSet[i]+'\'';
+
+				}
+
+				i++;
+
+			}
+
+			previousUrgencyBtnHandler(idSetString);
+
         
         }
 
        function nextUrgencyBtnHandler1(){
-        	var idSetString='';
-			var i=0;
-			while(UrgencyIdSet.length > i){
-				if(idSetString==''){
-					idSetString='\''+UrgencyIdSet[i]+'\'';
-				}else{
-					idSetString=idSetString+','+'\''+UrgencyIdSet[i]+'\'';
-				}
-				i++;
-			}
-			nextUrgencyBtnHandler(idSetString);
+        	var idSetString='';
+
+			var i=0;
+
+			while(UrgencyIdSet.length > i){
+
+				if(idSetString==''){
+
+					idSetString='\''+UrgencyIdSet[i]+'\'';
+
+				}else{
+
+					idSetString=idSetString+','+'\''+UrgencyIdSet[i]+'\'';
+
+				}
+
+				i++;
+
+			}
+
+			nextUrgencyBtnHandler(idSetString);
+
         
         } 
      
@@ -230,10 +266,14 @@
         </script>
         </apex:outputPanel>
       <apex:outputPanel id="titlePanel">
-        	<script>
-	            function updateList(){
-	                window.parent.refreshList();
-	            }
+        	<script>
+
+	            function updateList(){
+
+	                window.parent.refreshList();
+
+	            }
+
         
         </script>
     </apex:outputPanel>    
@@ -246,14 +286,22 @@
       <apex:actionFunction action="{!reset}" name="resetUrgency"/>
      <apex:actionFunction action="{!clear}" name="clearUrgency"/>
      <apex:actionFunction action="{!deleteUrgency}" name="deleteUrgency" onComplete="closeWindow();"/>
-	<apex:actionFunction action="{!nextBtnHandler}" name="nextUrgencyBtnHandler" 
-            						rerender="tablePanel" >  
-            						<apex:param assignTo="{!tempString}" name="idSetString" value=""/>
-	 </apex:actionFunction>
-	 <apex:actionFunction action="{!previousBtnHandler}" name="previousUrgencyBtnHandler" 
-	           						rerender="tablePanel"> 
-	           						<apex:param assignTo="{!tempString}" name="idSetString" value=""/>
-	 </apex:actionFunction>
+	<apex:actionFunction action="{!nextBtnHandler}" name="nextUrgencyBtnHandler" 
+
+            						rerender="tablePanel" >  
+
+            						<apex:param assignTo="{!tempString}" name="idSetString" value=""/>
+
+	 </apex:actionFunction>
+
+	 <apex:actionFunction action="{!previousBtnHandler}" name="previousUrgencyBtnHandler" 
+
+	           						rerender="tablePanel"> 
+
+	           						<apex:param assignTo="{!tempString}" name="idSetString" value=""/>
+
+	 </apex:actionFunction>
+
      
      
      <div id="capsule" class="CapsuleDiv1">
@@ -320,3 +368,5 @@
     </apex:outputPanel>
 </apex:page>
                             	
+
+                                <!-- Adding comment -->
